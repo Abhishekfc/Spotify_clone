@@ -3,9 +3,13 @@
     padding: 0;
 }
 
+html,
 body {
-    /* background-color: black;
-    color: white; */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    /* prevent body scroll */
 }
 
 .navbar {
@@ -186,18 +190,97 @@ body {
 
 .container {
     margin-top: 56px;
+    height: 100vh;
 }
 
 .left {
-    width: 25vw;
+    width: 28vw;
     padding: 4px;
+    height: 100vh;
+    margin: -2px;
+}
+
+.left .library {
+    height: 80%;
+}
+
+.heading {
+    padding: 1px;
+    height: 61px;
+    font-family: sans-serif;
+    justify-content: center;
+    display: flex;
+    width: 427px;
+    gap: 267px;
+    font-weight: bold;
+    align-items: center;
+    margin-left: -9px;
+
 
 }
+
+.library .heading img {
+    width: 15px;
+}
+
+
+.library .box2 {
+    height: 70%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.library .box2 .create-playlist {
+    height: 135px;
+    width: 96%;
+    background-color: #1f1f1f;
+    border-radius: 9px;
+    margin-top: 24px;
+    margin-left: 8px;
+
+}
+
+.library .box2 .browse-podcast {
+    height: 135px;
+    width: 96%;
+    background-color: #1f1f1f;
+    border-radius: 9px;
+    margin-top: 24px;
+    margin-left: 8px;
+
+}
+.library .box2 {
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+
+.library .box2::-webkit-scrollbar {
+  display: none;
+}
+
+.library .box2:hover {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(128, 128, 128, 0.3) transparent;
+}
+
+.library .box2:hover::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+}
+
+.library .box2:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.3);
+  border-radius: 0;
+}
+
+.library .box2:hover::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+
 
 .right {
-    width: 75vw
-}
-
-.library {
-    display: flex;
+    width: 75vw;
+    height: 100vh;
 }
