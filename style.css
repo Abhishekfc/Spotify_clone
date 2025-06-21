@@ -282,6 +282,11 @@ body {
     text-decoration: none;
 }
 
+.footer .extracookies a:hover{
+    
+    text-decoration: underline;
+}
+
 .language-button {
     display: inline-flex;
     align-items: center;
