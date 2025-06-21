@@ -200,8 +200,9 @@ body {
     margin: -2px;
 }
 
-.left .library {
-    height: 80%;
+.library {
+    height: 100vh;
+    position: relative;
 }
 
 .heading {
@@ -225,59 +226,85 @@ body {
 
 
 .library .box2 {
-    height: 70%;
+    height: 46%;
     overflow-y: auto;
     overflow-x: hidden;
+    font-family: sans-serif;
+    font-size: 15px;
 }
 
-.library .box2 .create-playlist {
-    height: 135px;
-    width: 96%;
-    background-color: #1f1f1f;
-    border-radius: 9px;
-    margin-top: 24px;
-    margin-left: 8px;
-
-}
-
+.library .box2 .create-playlist, 
 .library .box2 .browse-podcast {
-    height: 135px;
+    height: 135px;              /* Fixed height stays as is */
+    padding: 16px;              /* You can now add padding */
+    box-sizing: border-box;     /* Padding won't break the fixed height */
     width: 96%;
     background-color: #1f1f1f;
     border-radius: 9px;
-    margin-top: 24px;
-    margin-left: 8px;
+    margin: 24px auto 0 auto;
 
 }
-.library .box2 {
-  scrollbar-width: none; 
-  -ms-overflow-style: none;
+
+.footer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.library .box2::-webkit-scrollbar {
-  display: none;
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
 }
 
-.library .box2:hover {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(128, 128, 128, 0.3) transparent;
+.footer-links a {
+    color: rgb(146, 146, 146);
+    font-size: 12px;
+    font-family: sans-serif;
+    text-decoration: none;
 }
 
-.library .box2:hover::-webkit-scrollbar {
-  display: block;
-  width: 8px;
+.footer-links a:hover {
+    text-decoration: underline;
 }
 
-.library .box2:hover::-webkit-scrollbar-thumb {
-  background-color: rgba(128, 128, 128, 0.3);
-  border-radius: 0;
+.footer .extracookies {
+    margin-bottom: 14px;
+    
 }
 
-.library .box2:hover::-webkit-scrollbar-track {
-  background: transparent;
+.footer .extracookies a{
+    margin-bottom: 14px;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    font-family: sans-serif;
+    text-decoration: none;
 }
 
+.language-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #fff;
+    border: 1px solid #7e7c7c;
+    cursor: pointer;
+    width: fit-content;
 
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.language-button:hover {
+    transform: scale(1.05);
+    
+    border-color: #c8c6c6;
+    
+}
 
 
 .right {
