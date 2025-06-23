@@ -8,8 +8,9 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+    /* okay */
     overflow: hidden;
-    /* prevent body scroll */
+    /* ✅ Stops the WHOLE PAGE from scrolling */
 }
 
 .navbar {
@@ -189,15 +190,25 @@ body {
 }
 
 .container {
-    margin-top: 56px;
-    height: 100vh;
+    display: flex;
+    height: calc(100vh - 62px);
+    /* Fill available space after navbar */
+    margin-top: 62px;
+
 }
 
 .left {
-    width: 28vw;
+    /* width: 28vw;
     padding: 4px;
     height: 100vh;
-    margin: -2px;
+    margin: -2px; */
+
+    position: fixed;
+    top: 62px;
+    left: 0;
+    width: 28vw;
+    height: calc(100vh - 62px);
+
 }
 
 .library {
@@ -233,11 +244,14 @@ body {
     font-size: 15px;
 }
 
-.library .box2 .create-playlist, 
+.library .box2 .create-playlist,
 .library .box2 .browse-podcast {
-    height: 135px;              /* Fixed height stays as is */
-    padding: 16px;              /* You can now add padding */
-    box-sizing: border-box;     /* Padding won't break the fixed height */
+    height: 135px;
+    /* Fixed height stays as is */
+    padding: 16px;
+    /* You can now add padding */
+    box-sizing: border-box;
+    /* Padding won't break the fixed height */
     width: 96%;
     background-color: #1f1f1f;
     border-radius: 9px;
@@ -271,10 +285,10 @@ body {
 
 .footer .extracookies {
     margin-bottom: 14px;
-    
+
 }
 
-.footer .extracookies a{
+.footer .extracookies a {
     margin-bottom: 14px;
     color: rgb(255, 255, 255);
     font-size: 13px;
@@ -282,8 +296,8 @@ body {
     text-decoration: none;
 }
 
-.footer .extracookies a:hover{
-    
+.footer .extracookies a:hover {
+
     text-decoration: underline;
 }
 
@@ -306,13 +320,57 @@ body {
 
 .language-button:hover {
     transform: scale(1.05);
-    
+
     border-color: #c8c6c6;
-    
+
 }
 
 
 .right {
-    width: 75vw;
-    height: 100vh;
+    margin-left: 28vw;
+    flex: 1;
+    height: calc(100vh - 62px);
+    overflow-y: scroll;
+
+    /* Hide Scrollbar Styles: */
+    scrollbar-width: none; 
+    margin-top: 6px;
+}
+
+
+/* Section Styles */
+
+
+.section {
+
+    padding: 20px;
+    color: #fff;
+    background-color: blueviolet;
+    margin: 29px;
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scrollbar-width: none;
+    padding: 10px 0;
+
+}
+
+.card>* {
+    padding-top: 3px;
+}
+
+.card {
+
+    width: 169px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #7e7c7c;
+}
+
+.card img {
+    width: 100%;
+    object-fit: contain;
 }
