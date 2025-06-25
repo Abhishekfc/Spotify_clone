@@ -190,6 +190,7 @@ body {
 }
 
 .container {
+    position: relative;
     display: flex;
     height: calc(100vh - 62px);
     /* Fill available space after navbar */
@@ -327,13 +328,14 @@ body {
 
 
 .right {
+
     margin-left: 28vw;
     flex: 1;
     height: calc(100vh - 62px);
     overflow-y: scroll;
 
     /* Hide Scrollbar Styles: */
-    scrollbar-width: none; 
+    scrollbar-width: none;
     margin-top: 6px;
 }
 
@@ -343,34 +345,102 @@ body {
 
 .section {
 
-    padding: 20px;
+    padding: 20px 0 20px 0;
     color: #fff;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     margin: 29px;
 }
 
 .scroll-container {
     display: flex;
-    overflow-x: auto;
+    align-items: flex-start;
+    flex-wrap: nowrap;     /* ✅ Do NOT wrap to next line */
+    overflow-x: auto;      /* ✅ Enables horizontal scroll */
+    overflow-y: hidden;    /* ✅ Disables vertical scroll */
     gap: 10px;
-    scrollbar-width: none;
+
     padding: 10px 0;
 
+    /* Optional: hide the scrollbar visually (nice Spotify-style) */
+    scrollbar-width: none;
+    /* For Firefox */
 }
+
+
 
 .card>* {
     padding-top: 3px;
 }
 
 .card {
-
+    position: relative;
+    flex: 0 0 160px;
     width: 169px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #7e7c7c;
+
+    overflow: hidden;
+}
+
+.card:hover {
+    background-color: #1f1f1f;
 }
 
 .card img {
     width: 100%;
     object-fit: contain;
+}
+
+.play {
+    position: absolute;
+    right: 18px;
+    top: 122px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #1ed760;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+
+    cursor: pointer;
+
+    /* STARTS HIDDEN */
+    opacity: 0;
+    transform: translateY(10px);
+
+    /* TRANSITION SETTINGS */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.play img {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+/* Hover State: .play slides up and fades in */
+.card:hover .play {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.playbar {
+    position: fixed;
+    left: 28vw;
+    /* This is the starting point after the sidebar */
+    bottom: 0;
+    background-color: #1ed760;
+    width: calc(100vw - 28vw);
+    padding: 12px;
+}
+
+.songbuttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
 }
