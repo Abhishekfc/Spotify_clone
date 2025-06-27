@@ -388,13 +388,14 @@ body {
 
 .card img {
     width: 100%;
+    border-radius: 5px;
     object-fit: contain;
 }
 
 .play {
     position: absolute;
     right: 18px;
-    top: 122px;
+    top: 113px;
 
     display: flex;
     align-items: center;
@@ -409,7 +410,7 @@ body {
 
     /* STARTS HIDDEN */
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(16px);
 
     /* TRANSITION SETTINGS */
     transition: opacity 0.3s ease, transform 0.3s ease;
