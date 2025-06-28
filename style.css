@@ -232,35 +232,85 @@ body {
 
 }
 
-.library .heading img {
+.library .box2 img {
     width: 15px;
 }
 
-
-.library .box2 {
-    height: 46%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    font-family: sans-serif;
-    font-size: 15px;
+.library{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   padding-top: 9px; /* 👈 pushes .box2 downward */
 }
 
-.library .box2 .create-playlist,
-.library .box2 .browse-podcast {
-    height: 135px;
-    /* Fixed height stays as is */
+.box2 .library-header {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: #1f1f1f; /* Match box background */
+    z-index: 1;
+    padding: 15px 0;
+    /* border: 15px solid #1ed760; */
+    
+}
+
+ .box2 {
+     font-family: sans-serif;
+    font-size: 15px;
+    /* Remove overflow-y here */
     padding: 16px;
-    /* You can now add padding */
-    box-sizing: border-box;
-    /* Padding won't break the fixed height */
-    width: 96%;
     background-color: #1f1f1f;
     border-radius: 9px;
-    margin: 24px auto 0 auto;
+    margin: 0 7px;
+    height: 58vh;
+    display: flex;
+    flex-direction: column;
+    
 
 }
 
-.footer {
+.songList {
+    overflow-y: auto;
+    height: 100%;
+    scrollbar-width: none;
+}
+.songList ul {
+    padding-top: 0px 12px;
+}
+
+.songList ul li{
+    list-style-type: decimal;
+    display: flex;
+    gap: 12px;
+    cursor: pointer;
+    padding: 12px 0;
+    border: 1px solid rgb(79, 73, 73);
+    margin: 12px 0;
+    padding: 13px;
+    border-radius: 5px;
+    justify-content: space-between;
+    
+}
+.songList .info{
+    font-size: 13px;
+    width: 344px;
+}
+.playnow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.playnow span{
+    font-size: 10px;
+    width: 64px;
+    padding: 12px;
+}
+
+.footer { 
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -354,9 +404,12 @@ body {
 .scroll-container {
     display: flex;
     align-items: flex-start;
-    flex-wrap: nowrap;     /* ✅ Do NOT wrap to next line */
-    overflow-x: auto;      /* ✅ Enables horizontal scroll */
-    overflow-y: hidden;    /* ✅ Disables vertical scroll */
+    flex-wrap: nowrap;
+    /* ✅ Do NOT wrap to next line */
+    overflow-x: auto;
+    /* ✅ Enables horizontal scroll */
+    overflow-y: hidden;
+    /* ✅ Disables vertical scroll */
     gap: 10px;
 
     padding: 10px 0;
@@ -414,7 +467,7 @@ body {
 
     /* TRANSITION SETTINGS */
     transition: opacity 0.3s ease, transform 0.3s ease;
-}
+}  
 
 .play img {
     display: block;
@@ -430,18 +483,31 @@ body {
 }
 
 .playbar {
-    position: fixed;
+   position: fixed;
     left: 28vw;
-    /* This is the starting point after the sidebar */
+    right: 0;
     bottom: 0;
     background-color: #1ed760;
-    width: calc(100vw - 28vw);
     padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    
 }
 
 .songbuttons {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 12px;
 
+}
+
+.seekbar{
+    height: 2px;
+    width: 98%;
+    border: 2px solid rgb(7, 10, 8);
+    position: absolute;
+    bottom: 3px;
 }
