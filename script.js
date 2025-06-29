@@ -1,4 +1,19 @@
 console.log("let play with javascript")
+let currentSong = new Audio();
+
+function secondsToMinuteSeconds(seconds) {
+    if (isNaN(seconds) || seconds < 0) {
+        return "Invalid Input";
+    }
+
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+    return `${formattedMinutes}:${formattedSeconds}`
+}
 
 async function getSongs() {
 
@@ -21,9 +36,26 @@ async function getSongs() {
     return songs;
 }
 
+
+const playMusic = (track, pause = false) => {
+    // let audio = new Audio("/songs/" + track);
+    currentSong.src = "/songs/" + track;
+    if(!pause){
+
+        currentSong.play();
+        play.src = "pause.svg"
+    }
+
+    document.querySelector(".songinfo").innerHTML = decodeURI(track)
+    document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
+}
+
 async function main() {
+
+
     //get the list of all songs
     let songs = await getSongs();
+    playMusic(songs[0], true);
 
 
 
@@ -41,9 +73,72 @@ async function main() {
                                     <img class="invert" src="play.svg" alt="">
                                 </div></li>`;
     }
-    var audio = new Audio(songs[2]);
-    audio.play();
 
+    //attach event listener to each song
+    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
+        e.addEventListener("click", element => {
+            // console.log(e.querySelector(".info").firstElementChild.innerHTML.trim());
+            playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
+
+        })
+    })
+
+    ///attach and event listener to play prev play and nexr
+    play.addEventListener("click", () => {
+        if (currentSong.paused) {
+            currentSong.play()
+            play.src = "pause.svg"
+        } else {
+            currentSong.pause()
+            play.src = "play2.svg"
+
+        }
+    });
+
+    //listen for timeupdate event
+    currentSong.addEventListener("timeupdate", () => {
+        console.log(currentSong.currentTime, currentSong.duration)
+
+        document.querySelector(".songtime").innerHTML = `${secondsToMinuteSeconds(currentSong.currentTime)}/${secondsToMinuteSeconds(currentSong.duration)}`
+
+        document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration)*100 + "%";
+    })
+
+    //add an event listner to seekbar
+    document.querySelector(".seekbar").addEventListener("click", e=>{
+        let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100;
+        document.querySelector(".circle").style.left =  percent + "%";
+        currentSong.currentTime = (currentSong.duration * percent )/ 100;
+    })
+
+
+    // Add an event listener for hamburger
+   let menuOpen = false;
+
+document.querySelector(".hamburger").addEventListener("click", () => {
+    const left = document.querySelector(".left");
+    const hamburger = document.querySelector(".hamburger");
+
+    if (!menuOpen) {
+        left.style.left = "0";
+        hamburger.src = "close.svg";
+        menuOpen = true;
+    } else {
+        left.style.left = "-100%";
+        hamburger.src = "hamburger.svg";
+        menuOpen = false;
+    }
+});
+
+//  Fix: Reset sidebar on large screen resize
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1156) {
+    left.style.left = "0"; 
+    hamburger.src = "hamburger.svg";
+    menuOpen = false;
+  }
+});
+    
 
 }
 
