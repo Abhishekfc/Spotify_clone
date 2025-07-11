@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utility.css">
     <meta name="google" content="notranslate">
 
     <title>Spotify - Web Player: Music for everyone</title>
@@ -15,13 +15,13 @@
     <nav class="navbar bg-black">
     
         
-            <img id="hamburger"  class = "invert hamburger"src="hamburger.svg" alt="">
+            <img id="hamburger"  class = "invert hamburger"src="img/hamburger.svg" alt="">
         
         <div class="navbar-left">
-            <img class="spotify-logo invert" src="logo.svg" alt=" spotify logo">
+            <img class="spotify-logo invert" src="img/logo.svg" alt=" spotify logo">
 
             <div class="circle-icon">
-                <img class="logo invert" src="home.svg " alt="home logo">
+                <img class="logo invert" src="img/home.svg " alt="home logo">
 
             </div>
 
@@ -29,9 +29,9 @@
         <div class="navbar-mid">
             <div class="search-bar">
                 <input type="text" placeholder="What do you want to play?">
-                <img class="seach-icon invert" src="search.svg" alt="search">
+                <img class="seach-icon invert" src="img/search.svg" alt="search">
                 <div class="seperator"></div>
-                <img class="browse invert" src="browse.svg" alt="browse">
+                <img class="browse invert" src="img/browse.svg" alt="browse">
             </div>
         </div>
         <div class="navbar-right">
@@ -43,7 +43,7 @@
 
             <span class="divider"></span>
             <div class="install-app">
-                <img class="small-download-icon invert" src="download.svg" alt="Install App"> Install App
+                <img class="small-download-icon invert" src="img/download.svg" alt="Install App"> Install App
             </div>
             <a href="#">Sign Up</a>
             <button class="login-button">Log in</button>
@@ -67,7 +67,7 @@
                     <div class="library-header">
                         <h2>Your Library</h2>
 
-                        <img class="plus invert " src="plus.svg " alt="add">
+                        <img class="plus invert " src="img/plus.svg " alt="add">
 
                     </div>
 
@@ -114,25 +114,9 @@
         <div class="right bg-grey rounded">
             <div class="section">
 
-                <h2>Trending Song</h2>
-                <div class="scroll-container">
-                    <div data-folder="cs" class="card ">
-                        <div class="play">
-                            <img src="play.svg" alt="">
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67616d00001e02114e03dcb192736b33a42cb5" alt="">
-                        <p>Song name</p>
-                        <span>Artist Name</span>
-                    </div>
-
-                    <div data-folder="ncs" class="card ">
-                        <div class="play">
-                            <img src="play.svg" alt="">
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67616d00001e02114e03dcb192736b33a42cb5" alt="">
-                        <p>Song name</p>
-                        <span>Artist Name</span>
-                    </div>
+                <h2>Spotify Playlist</h2>
+                <div class="cardcontainer">
+                  
                     
 
 
@@ -180,9 +164,9 @@
                     </div>
 
                     <div class="songbuttons">
-                        <img id="previous" src="prevsong.svg" alt="">
-                        <img id="play" src="play2.svg" alt="">
-                        <img id="next" src="nextsong.svg" alt="">
+                        <img id="previous" src="img/prevsong.svg" alt="">
+                        <img id="play" src="img/play2.svg" alt="">
+                        <img id="next" src="img/nextsong.svg" alt="">
                     </div>
 
                     <div class="timevol">
@@ -192,7 +176,7 @@
 
                     <div class="volume">
 
-                        <img width="20" src="volume.svg" alt="">
+                        <img width="20" src="img/volume.svg" alt="">
                         <div class="range">
                             <input type="range" name="volume" id="">
                         </div>
@@ -207,7 +191,7 @@
     </div>
 
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
